@@ -18,6 +18,11 @@
             define('WebVer',        '1.0.0000');
             define('VerName',       'iws_V');
 
+            define('dbHost',        'localhost');
+            define('dbUser',        'root');
+            define('dbPass',        '');
+            define('dbDB',          'iws_software');
+
             define('UserAgent',     'true'); // Aktiviert die Funktion, nur bestimmte Webcrawler auf die Websoftware zugriff zu gewähren
             define('UserAgentJSON', 'iws_app/iws_utility/i_UserAgent.json'); // Pfad zur JSON
         }
