@@ -1,7 +1,6 @@
 <?php
 
-    class Autoloader
-    {
+    class Autoloader{
         protected $basePath;
 
         public function __construct($basePath)
@@ -14,6 +13,7 @@
             spl_autoload_register([$this, 'loadClass']);
             $this->loadControllers();
             $this->loadModels();
+            $this->loadHandlers();
         }
 
         protected function loadClass($className)
@@ -34,6 +34,12 @@
         {
             $modelPath = $this->basePath . DIRECTORY_SEPARATOR . 'Model';
             $this->loadClassesFromPath($modelPath);
+        }
+
+        protected function loadHandlers()
+        {
+            $handlerPath = $this->basePath . DIRECTORY_SEPARATOR . 'Handler';
+            $this->loadClassesFromPath($handlerPath);
         }
 
         protected function loadClassesFromPath($path)
@@ -58,4 +64,3 @@
             }
         }
     }
-
