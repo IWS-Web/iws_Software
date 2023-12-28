@@ -6,6 +6,8 @@
     $loader = new Autoloader(__DIR__."/iws_app");
     $loader->load();
 
+    $config = new Config;
+
 
 
 
