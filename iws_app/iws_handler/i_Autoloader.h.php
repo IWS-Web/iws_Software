@@ -12,6 +12,7 @@
             $this->loadControllers();
             $this->loadModels();
             $this->loadHandlers();
+            $this->loadUtility();
         }
 
         protected function loadClass($classFile){
@@ -37,6 +38,11 @@
         protected function loadHandlers(){
             $handlerPath = $this->basePath . DIRECTORY_SEPARATOR . 'iws_handler/';
             $this->loadClassesFromPath($handlerPath, '.h.php');
+        }
+
+        protected function loadUtility(){
+            $handlerPath = $this->basePath . DIRECTORY_SEPARATOR . 'iws_utility/';
+            $this->loadClassesFromPath($handlerPath, '.u.php');
         }
 
         protected function loadClassesFromPath($path, $fileExtension){
