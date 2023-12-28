@@ -8,6 +8,8 @@
 
     $config = new Config;
 
+    $app    = new App;
+
 
 
 
