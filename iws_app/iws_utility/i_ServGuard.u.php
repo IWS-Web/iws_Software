@@ -25,5 +25,3 @@
             return true;
         }
     }
-
-    // $securityGuard = new SecurityGuard('deinedomain.com');
