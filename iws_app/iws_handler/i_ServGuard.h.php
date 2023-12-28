@@ -1,5 +1,7 @@
 <?php
 
+    namespace iws_handler;
+
     class SecurityGuard {
         private $allowedDomain;
     
@@ -13,12 +15,14 @@
     
         private function checkDomain() {
             $currentHost = $_SERVER['HTTP_HOST'];
-    
+            
             if ($currentHost !== $this->allowedDomain) {
                 header("HTTP/1.1 403 Forbidden");
                 echo "Access forbidden.";
                 exit;
             }
+
+            return true;
         }
     }
 
