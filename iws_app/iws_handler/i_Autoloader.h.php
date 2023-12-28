@@ -3,47 +3,43 @@
     class Autoloader{
         protected $basePath;
 
-        public function __construct($basePath)
-        {
+        public function __construct($basePath){
             $this->basePath = $basePath;
         }
 
-        public function load()
-        {
+        public function load(){
             spl_autoload_register([$this, 'loadClass']);
             $this->loadControllers();
             $this->loadModels();
             $this->loadHandlers();
         }
 
-        protected function loadClass($className)
-        {
-            $classFile = $this->basePath . DIRECTORY_SEPARATOR . str_replace('\\', DIRECTORY_SEPARATOR, $className) . '.php';
-            if (file_exists($classFile)) {
+        protected function loadClass($classFile){
+            if(file_exists($classFile)) {
                 require_once $classFile;
+            }else{
+                header("HTTP/1.1 404 Not Found");
+                echo "File not Found";
+                exit;
             }
         }
 
-        protected function loadControllers()
-        {
-            $controllerPath = $this->basePath . DIRECTORY_SEPARATOR . 'Controller';
-            $this->loadClassesFromPath($controllerPath);
+        protected function loadControllers(){
+            $controllerPath = $this->basePath . DIRECTORY_SEPARATOR . 'iws_controller/';
+            $this->loadClassesFromPath($controllerPath, '.c.php');
         }
 
-        protected function loadModels()
-        {
-            $modelPath = $this->basePath . DIRECTORY_SEPARATOR . 'Model';
-            $this->loadClassesFromPath($modelPath);
+        protected function loadModels(){
+            $modelPath = $this->basePath . DIRECTORY_SEPARATOR . 'iws_model/';
+            $this->loadClassesFromPath($modelPath, '.m.php');
         }
 
-        protected function loadHandlers()
-        {
-            $handlerPath = $this->basePath . DIRECTORY_SEPARATOR . 'Handler';
-            $this->loadClassesFromPath($handlerPath);
+        protected function loadHandlers(){
+            $handlerPath = $this->basePath . DIRECTORY_SEPARATOR . 'iws_handler/';
+            $this->loadClassesFromPath($handlerPath, '.h.php');
         }
 
-        protected function loadClassesFromPath($path)
-        {
+        protected function loadClassesFromPath($path, $fileExtension){
             if (is_dir($path)) {
                 $files = new RecursiveIteratorIterator(
                     new RecursiveDirectoryIterator($path),
@@ -53,14 +49,20 @@
                 foreach ($files as $file) {
                     if ($file->isFile() && $file->getExtension() === 'php') {
                         $className = str_replace(
-                            [$path . DIRECTORY_SEPARATOR, '.php', DIRECTORY_SEPARATOR],
+                            [$path . DIRECTORY_SEPARATOR, $fileExtension, DIRECTORY_SEPARATOR],
                             ['', '', '\\'],
                             $file->getPathname()
                         );
 
-                        $this->loadClass($className);
+                        $this->loadClass($className.$fileExtension);
                     }
                 }
             }
+        }
+
+        protected function convertClassNameToFileName($className){
+            $classNameParts = explode('\\', $className);
+            $fileName = end($classNameParts);
+            return $fileName . '.php';
         }
     }
