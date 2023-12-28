@@ -39,9 +39,6 @@
                     exit;
                 }
             }
-
-            // Hier können Sie den normalen Ablauf fortsetzen, da kein Bot erkannt wurde
-            echo "Normales Verhalten.";
         }
     }
 
