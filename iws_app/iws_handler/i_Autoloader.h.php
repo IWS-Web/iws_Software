@@ -1,5 +1,4 @@
 <?php
-
     class Autoloader{
         protected $basePath;
 
