@@ -1,8 +1,8 @@
 <?php
 
-    use iws_controller\Viewer;
-    use iws_model\CPLoader_Model;
-    use iws_utility\UserAgent;
+    use iws_controller\iws_system\Viewer_Controller\Viewer;
+    use iws_model\iws_system\CPLoader\CPLoader;
+    use iws_utility\UserAgent\UserAgent;
 
     class App{
 
@@ -23,7 +23,7 @@
             }
 
             $db         = new Database(dbHost, dbUser, dbPass, dbDB);
-            $cpLoader   = new CPLoader_Model;
+            $cpLoader   = new CPLoader;
             $viewer     = new Viewer;
 
 
