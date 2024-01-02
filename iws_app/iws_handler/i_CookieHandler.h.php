@@ -22,7 +22,6 @@
         }
     
         public function encrypt($value) {
-            // Hier wird password_hash für die Verschlüsselung verwendet, mit BCRYPT-Algorithmus.
             return password_hash($value, PASSWORD_BCRYPT, ['cost' => 12]);
         }
     
@@ -32,7 +31,6 @@
                 return false;
             }
     
-            // Hier wird password_verify für die Überprüfung verwendet.
             return password_verify($expectedValue, $encryptedValue);
         }
     

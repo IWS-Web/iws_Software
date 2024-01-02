@@ -28,7 +28,6 @@
         }
 
         private function forceHttps() {
-            // Überprüfen, ob die HTTPS-Variable im $_SERVER-Array existiert und ob sie 'on' ist
             if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'on') {
     
                 // Überprüfen, ob es sich um den Localhost handelt
@@ -47,7 +46,6 @@
             // Überprüfen, ob es sich um den Localhost handelt
             $isLocalhost = in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'));
     
-            // Fehlerausgabe nur für den Localhost aktivieren
             if (!$isLocalhost) {
                 error_reporting(0); // Alle Fehler ignorieren
                 ini_set('display_errors', 'Off');

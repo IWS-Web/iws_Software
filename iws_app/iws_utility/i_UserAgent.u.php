@@ -25,7 +25,6 @@
 
         public function checkUserAgent($userAgent, $urlParameter) {
             if (!empty($urlParameter)) {
-                // Wenn ein URL-Parameter vorhanden ist, Header mit Fehlercode und Fehlermeldung senden
                 header("HTTP/1.1 403 Forbidden");
                 echo "Forbidden";
                 exit;
@@ -33,7 +32,6 @@
 
             foreach ($this->userAgents as $agent) {
                 if ($this->isBotUserAgent($userAgent, $agent['instances'])) {
-                    // Webcrawler gefunden, Header mit Fehlercode und Fehlermeldung senden
                     header("HTTP/1.1 403 Forbidden");
                     echo "Forbidden";
                     exit;

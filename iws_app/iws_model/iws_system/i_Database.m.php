@@ -90,9 +90,8 @@
                 die("Error in prepared statement: " . $this->connection->error);
             }
 
-            // Dynamische Anzahl von Parametern binden
             if ($values) {
-                $types = str_repeat('s', count($values)); // Annahme, dass alle Parameter vom Typ String sind
+                $types = str_repeat('s', count($values));
                 $stmt->bind_param($types, ...$values);
             }
 

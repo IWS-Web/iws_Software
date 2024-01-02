@@ -7,10 +7,8 @@
 
         public function assign($data) {
             if (is_array($data)) {
-                // Wenn ein assoziatives Array übergeben wird
                 $this->data = array_merge($this->data, $data);
             } else {
-                // Fehler oder unerwarteter Datentyp
                 trigger_error('Invalid argument type for assign method. Expecting an array.', E_USER_ERROR);
             }
         }
@@ -26,22 +24,17 @@
         public function render($tpl) {
             $output = $tpl;
 
-            // Ersetze Variablen
             foreach ($this->data as $key => $value) {
                 $output = str_replace("{{{$key}}}", $value, $output);
             }
 
-            // Verarbeite Schleifen
             $output = $this->processLoops($output);
-
-            // Verarbeite Bedingungen
             $output = $this->processConditions($output);
 
             echo $output;
         }
 
         private function processLoops($tpl) {
-            // Beispiel: {{loop $items as $item}}
             $pattern = '/{{loop (.*?)}}(.*?){{\/loop (.*?)}}/s';
             preg_match_all($pattern, $tpl, $matches, PREG_SET_ORDER);
 
@@ -65,7 +58,6 @@
         }
 
         private function processConditions($tpl) {
-            // Beispiel: {{if userLoggedIn}} ... {{/if userLoggedIn}}
             $pattern = '/{{if (.*?)}}(.*?){{\/if (.*?)}}/s';
             preg_match_all($pattern, $tpl, $matches, PREG_SET_ORDER);
 
