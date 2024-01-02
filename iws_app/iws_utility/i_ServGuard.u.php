@@ -1,6 +1,6 @@
 <?php
 
-    namespace iws_utility;
+    namespace iws_utility\ServGuard;
 
     class SecurityGuard {
         private $allowedDomain;
