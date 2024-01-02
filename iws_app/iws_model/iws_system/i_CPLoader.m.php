@@ -1,10 +1,10 @@
 <?php
 
-    namespace iws_model;
+    namespace iws_model\iws_system\CPLoader;
 
-    use iws_handler\SessionHandler;
+    use iws_handler\Session_Handler\Session;
 
-    class CPLoader_Model{
+    class CPLoader{
 
         public function __construct(){
             $this->setCP();
@@ -12,7 +12,7 @@
         }
 
         private function setCP(){
-            $session = new SessionHandler;
+            $session = new Session;
 
             if(!($session->isSessionSet('cp'))){
                 $session->setSession('cp', 'home');
