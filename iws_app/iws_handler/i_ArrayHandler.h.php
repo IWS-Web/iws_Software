@@ -1,8 +1,8 @@
 <?php
 
-    namespace iws_handler;
+    namespace iws_handler\Array_Handler;
 
-    class CustomArrayHandler {
+    class Arrays {
         
         // Funktion zum Mischen eines Arrays
         public static function shuffleArray($array) {
