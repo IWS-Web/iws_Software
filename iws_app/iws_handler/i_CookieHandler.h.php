@@ -22,8 +22,8 @@
         }
     
         public function encrypt($value) {
-            // Hier wird password_hash für die Verschlüsselung verwendet.
-            return password_hash($value, PASSWORD_DEFAULT, ['cost' => 12]);
+            // Hier wird password_hash für die Verschlüsselung verwendet, mit BCRYPT-Algorithmus.
+            return password_hash($value, PASSWORD_BCRYPT, ['cost' => 12]);
         }
     
         public function verifyEncryptedCookie($name, $expectedValue) {
@@ -39,9 +39,10 @@
         public function getAllCookies() {
             $cookies = [];
             foreach ($_COOKIE as $name => $value) {
+                $expiration = date('d.m.Y - H:i:s', $_COOKIE[$name]);
                 $cookies[$name] = [
                     'value' => $value,
-                    'expiration' => date('Y-m-d H:i:s', $_COOKIE[$name]),
+                    'expiration' => $expiration,
                 ];
             }
             return $cookies;
@@ -59,5 +60,9 @@
                 setcookie($name, '', time() - 3600, '/');
                 unset($_COOKIE[$name]);
             }
+        }
+    
+        public function isCookieSet($name) {
+            return isset($_COOKIE[$name]);
         }
     }
