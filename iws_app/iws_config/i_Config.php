@@ -1,6 +1,6 @@
 <?php
 
-    use iws_utility\SecurityGuard;
+    use iws_utility\ServGuard\SecurityGuard;
 
     class Config{
         
