@@ -2,13 +2,7 @@
 
     namespace iws_handler;
 
-    class SessionHandler {
-
-        // Konstruktor
-        public function __construct() {
-            session_start();
-        }
-    
+    class SessionHandler {    
         // Session setzen
         public function setSession($key, $value) {
             $_SESSION[$key] = $value;
@@ -25,6 +19,11 @@
         public function deleteAllSessions() {
             session_unset();
             session_destroy();
+        }
+    
+        // Prüfen, ob eine Session vorhanden ist
+        public function isSessionSet($key) {
+            return isset($_SESSION[$key]);
         }
     }
 
