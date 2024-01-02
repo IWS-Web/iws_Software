@@ -1,8 +1,8 @@
 <?php
 
-    namespace iws_handler;
+    namespace iws_handler\Session_Handler;
 
-    class SessionHandler {    
+    class Session{    
         // Session setzen
         public function setSession($key, $value) {
             $_SESSION[$key] = $value;
