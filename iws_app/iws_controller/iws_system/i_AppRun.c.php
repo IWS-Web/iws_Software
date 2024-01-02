@@ -1,10 +1,14 @@
 <?php
 
+    use iws_controller\Viewer;
+    use iws_model\CPLoader_Model;
     use iws_utility\UserAgent;
 
     class App{
 
         public function __construct(){
+            session_start();
+            
             $this->loadInstance();
         }
 
@@ -18,7 +22,10 @@
                 $userAgent->checkUserAgent($uAgent, $uURL);
             }
 
-            $db = new Database(dbHost, dbUser, dbPass, dbDB);
+            $db         = new Database(dbHost, dbUser, dbPass, dbDB);
+            $cpLoader   = new CPLoader_Model;
+            $viewer     = new Viewer;
+
 
 
         }
