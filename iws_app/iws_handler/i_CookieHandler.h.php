@@ -1,8 +1,8 @@
 <?php
 
-    namespace iws_handler;
+    namespace iws_handler\Cookie_Handler;
 
-    class CookieHandler {
+    class Cookies{
         private $encryptionKey;
     
         public function __construct($encryptionKey) {
