@@ -1,8 +1,8 @@
 <?php
 
-    namespace iws_controller;
+    namespace iws_controller\iws_system\Viewer_Controller;
 
-    use iws_handler\SessionHandler;
+    use iws_handler\Session_Handler\Session;
 
     class Viewer{
 
@@ -11,7 +11,7 @@
         }
 
         private function getCP(){
-            $sess = new SessionHandler;
+            $sess = new Session;
         }
 
     }
