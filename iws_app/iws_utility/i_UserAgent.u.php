@@ -1,6 +1,6 @@
 <?php
 
-    namespace iws_utility;
+    namespace iws_utility\UserAgent;
 
     class UserAgent {
         private $userAgents;
