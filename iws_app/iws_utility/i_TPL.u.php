@@ -1,6 +1,6 @@
 <?php
 
-    namespace iws_utility;
+    namespace iws_utility\TPL;
 
     class TplEngine {
         private $data = [];
