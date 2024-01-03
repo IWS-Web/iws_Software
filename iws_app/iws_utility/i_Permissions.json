@@ -2,13 +2,9 @@
     "groups": {
         "Gast":                 0,
         "Newbie":               1,
-        "Member":               2,
-        "Builder":              3,
-        "Moderator":            4,
-        "Developer":            5,
-        "Admin":                6,
-        "Projektleitung":       7,
-        "System":               8
+        "Moderator":            2,
+        "Admin":                3,
+        "System":               4
     },
 
     "permissions": {
@@ -27,13 +23,11 @@
         },
 
         "canUseSCP": {
-            "Projektleitung":   1,
             "System":           1
         },
 
         "canManageUsers": {
             "Admin":            1,
-            "Projektleitung":   1,
             "System":           0
         }
     }
