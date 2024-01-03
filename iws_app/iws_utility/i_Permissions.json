@@ -1,0 +1,41 @@
+{
+    "groups": {
+        "Gast":                 0,
+        "Newbie":               1,
+        "Member":               2,
+        "Builder":              3,
+        "Moderator":            4,
+        "Developer":            5,
+        "Admin":                6,
+        "Projektleitung":       7,
+        "System":               8
+    },
+
+    "permissions": {
+        "canUseUCP": {
+            "Gast":             0,
+            "Newbie":           1
+        },
+
+        "canUseMCP": {
+            "Moderator":        1,
+            "Admin":            0
+        },
+
+        "canUseACP": {
+            "Admin":            1
+        },
+
+        "canUseSCP": {
+            "Projektleitung":   1,
+            "System":           1
+        },
+
+        "canManageUsers": {
+            "Admin":            1,
+            "Projektleitung":   1,
+            "System":           0
+        }
+    }
+}
+  
