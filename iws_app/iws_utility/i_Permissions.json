@@ -1,10 +1,8 @@
 {
     "groups": {
         "Gast":                 0,
-        "Newbie":               1,
-        "Moderator":            2,
-        "Admin":                3,
-        "System":               4
+        "Admin":                1,
+        "System":               2
     },
 
     "permissions": {
